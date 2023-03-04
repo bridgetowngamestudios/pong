@@ -1,21 +1,21 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 var speed = 400
-var velocity = Vector2.ZERO
+var ball_velocity = Vector2.ZERO
 
 func _ready():
-	velocity.x = [1,-1][randi()%2]
-	velocity.y = [-0.8, 0.8][randi()%2]
+	ball_velocity.x = [1,-1][randi()%2]
+	ball_velocity.y = [-0.8, 0.8][randi()%2]
 
 func _physics_process(delta):
-	var collision_object = move_and_collide(velocity*speed * delta)
+	var collision_object = move_and_collide(ball_velocity*speed * delta)
 	if collision_object:
-		velocity = velocity.bounce(collision_object.normal)
+		ball_velocity = ball_velocity.bounce(collision_object.get_normal())
 
 func stop_ball():
 	speed = 0
 	
 func restart_ball():
 	speed = 400
-	velocity.x = [1,-1][randi()%2]
-	velocity.y = [-0.8, 0.8][randi()%2]
+	ball_velocity.x = [1,-1][randi()%2]
+	ball_velocity.y = [-0.8, 0.8][randi()%2]
