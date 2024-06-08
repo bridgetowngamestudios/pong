@@ -12,6 +12,9 @@ func _physics_process(delta):
 	if collision_object:
 		ball_velocity = ball_velocity.bounce(collision_object.get_normal())
 
+func reset_ball():
+	position = Vector2(640,200)
+
 func stop_ball():
 	speed = 0
 	

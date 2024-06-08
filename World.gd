@@ -4,14 +4,17 @@ var Player1Score = 0
 var Player2Score = 0
 
 func _on_Left_body_entered(body):
-	$Ball.position = Vector2(517, 210)
+	if body.name != "Ball":
+		return
+	$Ball.reset_ball()
 	Player2Score +=1
 	get_tree().call_group('BallGroup', 'stop_ball')
 	$Countdown.start()
 
-
 func _on_Right_body_entered(body):
-	$Ball.position = Vector2(517, 210)
+	if body.name != "Ball":
+		return
+	$Ball.reset_ball()
 	Player1Score += 1
 	get_tree().call_group('BallGroup', 'stop_ball')
 	$Countdown.start()
