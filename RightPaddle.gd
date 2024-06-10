@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 450
+var speed = 750
 
 var ball
 
