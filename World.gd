@@ -3,6 +3,15 @@ extends Node
 var Player1Score = 0
 var Player2Score = 0
 
+func _input(event):
+	if event.is_action_pressed("Pause"):
+		if get_tree().paused == true:
+			get_tree().paused = false
+			$PauseMenu.hide()
+			return
+		get_tree().paused = true
+		$PauseMenu.show()
+
 func _on_Left_body_entered(body):
 	if body.name != "Ball":
 		return
@@ -33,10 +42,16 @@ func _on_Countdown_timeout():
 	$Ball.start_ball()
 
 func _on_restart_button_pressed():
-	pass # Replace with function body.
+	print("Restart")
+	Player1Score = 0
+	Player2Score = 0
+	$Ball.stop_ball()
+	$Ball.reset_ball()
+	$Countdown.start()
 
 func _on_options_button_pressed():
-	pass # Replace with function body.
+	print("Options")
 
 func _on_quit_button_pressed():
-	pass # Replace with function body.
+	print("Quit")
+	get_tree().quit()
