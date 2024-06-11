@@ -5,7 +5,7 @@ var Player2Score = 0
 
 func _input(event):
 	if event.is_action_pressed("Pause"):
-		if get_tree().paused == true:
+		if get_tree().paused:
 			get_tree().paused = false
 			$PauseMenu.hide()
 			return
@@ -42,7 +42,6 @@ func _on_Countdown_timeout():
 	$Ball.start_ball()
 
 func _on_restart_button_pressed():
-	print("Restart")
 	Player1Score = 0
 	Player2Score = 0
 	$Ball.stop_ball()
@@ -53,5 +52,4 @@ func _on_options_button_pressed():
 	print("Options")
 
 func _on_quit_button_pressed():
-	print("Quit")
 	get_tree().quit()
