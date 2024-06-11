@@ -6,11 +6,17 @@ var Player2Score = 0
 func _input(event):
 	if event.is_action_pressed("Pause"):
 		if get_tree().paused:
-			get_tree().paused = false
-			$PauseMenu.hide()
+			unpause_game()
 			return
-		get_tree().paused = true
-		$PauseMenu.show()
+		pause_game()
+
+func pause_game():
+	get_tree().paused = true
+	$PauseMenu.show()
+
+func unpause_game():
+	get_tree().paused = false
+	$PauseMenu.hide
 
 func _on_Left_body_entered(body):
 	if body.name != "Ball":
