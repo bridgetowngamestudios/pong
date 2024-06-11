@@ -142,13 +142,6 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseText" type="RichTextLabel" parent="PauseMenu"]
-layout_mode = 2
-text = "Paused
-"
-fit_content = true
-autowrap_mode = 0
-
 [node name="RestartButton" type="Button" parent="PauseMenu"]
 layout_mode = 2
 text = "Restart"
