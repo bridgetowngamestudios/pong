@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://7sgtdqjqcchr"]
+[gd_scene load_steps=16 format=3 uid="uid://7sgtdqjqcchr"]
 
 [ext_resource type="Script" path="res://RightPaddle.gd" id="1"]
 [ext_resource type="Script" path="res://LeftPaddle.gd" id="2"]
 [ext_resource type="Script" path="res://Ball.gd" id="3"]
 [ext_resource type="Script" path="res://World.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://ygisbhsleen0" path="res://boing.wav" id="5_3hgf0"]
+[ext_resource type="AudioStream" uid="uid://dl3mut0dyrp25" path="res://win.wav" id="6_0nf21"]
+[ext_resource type="AudioStream" uid="uid://bsew27xsn2cba" path="res://lose.wav" id="6_7o7dy"]
+[ext_resource type="AudioStream" uid="uid://dpyarbgwxrxq1" path="res://point.wav" id="6_fso7n"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(11, 172)
@@ -149,6 +152,32 @@ text = "Restart"
 [node name="QuitButton" type="Button" parent="PauseMenu"]
 layout_mode = 2
 text = "Quit"
+
+[node name="WonLabel" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="PlayerWinSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_0nf21")
+
+[node name="PlayerLoseSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_7o7dy")
+
+[node name="PointSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_fso7n")
 
 [connection signal="body_entered" from="LeftOut" to="." method="_on_Left_body_entered"]
 [connection signal="body_entered" from="RightOut" to="." method="_on_Right_body_entered"]
