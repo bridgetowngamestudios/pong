@@ -48,8 +48,5 @@ func _on_restart_button_pressed():
 	$Ball.reset_ball()
 	$Countdown.start()
 
-func _on_options_button_pressed():
-	print("Options")
-
 func _on_quit_button_pressed():
 	get_tree().quit()
